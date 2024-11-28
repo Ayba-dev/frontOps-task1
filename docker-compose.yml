@@ -1,0 +1,10 @@
+services:
+  data:
+    build:
+      dockerfile: data.dockerfile
+  result:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - data
