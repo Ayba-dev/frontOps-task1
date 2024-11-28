@@ -3,9 +3,9 @@ const express = require('express');
 const app = express();
 
 
-
+const DATE_SERVER_POST = process.env.DATE_SERVER_POST || "http://localhost:3005"
 app.get('/', (req, res) => {
-    fetch("http://localhost:3005")
+    fetch(DATE_SERVER_POST)
         .then(res => res.json())
         .then(date => {
             res.send(`hello current ${new Date()}`)
