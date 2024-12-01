@@ -1,0 +1,14 @@
+services:
+  data:
+    image: aibekm/result-date
+    build:
+      dockerfile: data.dockerfile
+  result:
+    image: aibekm/result
+    build: .
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - data
